@@ -34,3 +34,19 @@ Calculator.prototype.lexer = function(inputString){
   if (!tokens.length) "Error: unparseable token";
   else return tokens;
 }
+
+// Next, write two prototype functions called peek and get.
+//
+// peek should return the next token from this.tokenStream but not modify tokenStream
+//  get should return the next token and remove it from the tokenStream.
+
+Calculator.prototype.peek = function(){
+  var nextPeekToken = this.tokenStream[0];
+  return nextPeekToken;
+}
+
+Calculator.prototype.get = function(){
+  var nextGetToken = this.tokenStream[0]
+  this.tokenStream = this.tokenStream.slice(1);
+  return nextGetToken;
+}
